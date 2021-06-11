@@ -20,7 +20,7 @@ int partition(int A[], int low , int high){
 			swap(&A[i], &A[j]);
 	}
 	swap(&A[j], &A[low]);
-	return (j);
+	return j;
 }
 void quick_Sort(int A[], int low, int high){
 	if(low<high){
