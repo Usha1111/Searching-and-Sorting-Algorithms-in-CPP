@@ -17,10 +17,9 @@ public class QuickSortJava {
         }
 
         int pos = start+count;
-        if(count > 0){
             arr[start] = arr[pos];
             arr[pos] = pivEle ;
-        }
+       
         int i=start ;
         int j=end ;
         while(i< pos && j > pos){
