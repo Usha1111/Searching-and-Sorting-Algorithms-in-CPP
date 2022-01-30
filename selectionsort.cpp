@@ -11,9 +11,9 @@ void swap(int *i, int *min_index){
 //compare the selected min element with each element in the array
 //and find the min and call swap
 void selection_Sort(int A[], int size){
-	for(int i=0 ; i<size ; i++){
+	for(int i=0 ; i<size-1 ; i++){
 		int min_index = i ;
-		for(int j=i+1 ; j<size-1 ; j++){
+		for(int j=i+1 ; j<size ; j++){
 			if(A[j]<A[min_index]){
 				min_index = j ;
 			}
