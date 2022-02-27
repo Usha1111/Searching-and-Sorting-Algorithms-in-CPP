@@ -1,5 +1,6 @@
 //sort maxHeap in ascending order
-//heapSort
+//inplace heapSort
+//it can also be implemented using a temp array if the original heap has to be retained
 class HeapSort{
 	public static void main(String[] args){
 		PriorityQueue maxHeap = new PriorityQueue();
