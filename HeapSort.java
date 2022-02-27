@@ -46,7 +46,7 @@ class PriorityQueue{
 		while(parentIndex < end-1){
 			int maxIndex = parentIndex;
 			if(leftChild < end){
-				if(rightChild < end && maxHeap.get(leftChild) < maxHeap.get(rightChild))
+				if(rightChild < end && maxHeap.get(leftChild) < maxHeap.get(rightChild) && arr[rightChild] > arr[maxIndex])
 					maxIndex = rightChild;
 				else if(maxHeap.get(leftChild) > maxHeap.get(maxIndex))
 					maxIndex = leftChild ;
