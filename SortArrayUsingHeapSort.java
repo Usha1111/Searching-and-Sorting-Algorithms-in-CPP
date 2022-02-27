@@ -36,6 +36,10 @@ class SortArrayUsingHeapSort{
 		sortArray(arr, end-1);
 	}
 
+	//do heapify from the middle index of the array
+	//heapify until all the nodes satisfy the heap order property
+	//if heapify is done from the last index, you get the same results
+	
 	public static void heapSort(int[] arr){
 		int index = arr.length/2;
 		while(index > -1){
