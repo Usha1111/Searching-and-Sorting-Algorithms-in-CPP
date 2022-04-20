@@ -6,14 +6,16 @@ class Codechef
                 new Edge(1,1), new Edge(1,2), new Edge(2,3), new Edge(3,5) ,new Edge(5,6), new Edge(4,5),
                 new Edge(0,4), new Edge(3,4)
                 );
-        Graph g = new Graph(edges, 10);
+        Graph g = new Graph(edges, 6);
         g.DFS(1);
 	}
 }
 class Graph{
     List<List<Integer>> g = new ArrayList<>();
+    int v;
     Graph(List<Edge> edgeList, int v){
-        for(int i=0 ; i<v ; i++)
+        this.v = v;
+        for(int i=0 ; i<=v ; i++)
             g.add(i, new ArrayList<>());
             
         for(Edge e : edgeList){
@@ -22,28 +24,34 @@ class Graph{
         }
     }
     public void DFS(int source){
-        Stack<Integer> stack = new Stack<>();
-        boolean[] visited = new boolean[g.size()];
-        stack.push(source);
+        Stack<Pair> stack = new Stack<>();
+        boolean[] visited = new boolean[v+1];
+        stack.push(new Pair(source, 0));
+        System.out.print(source+", ");
         visited[source] = true;
         while(!stack.isEmpty()){
-            int current = stack.pop();
-            System.out.print(current+", ");
-            for(int node : g.get(current)){
-                if(!visited[node]){
-                    stack.push(node);
-                    visited[node] = true;
-                }
+            Pair curr = stack.peek();
+            if(curr.index >= g.get(curr.node).size()){
+                stack.pop();
+                continue;
+            }
+            int node = g.get(curr.node).get(curr.index);
+            stack.pop();
+            stack.push(new Pair(curr.node, curr.index+1));
+            if(!visited[node]){
+                System.out.print(node+", ");
+                stack.push(new Pair(node, 0));
+                visited[node] = true;
             }
         }
     }
     
 }
 class Pair{
-    int node, distance;
-    Pair(int node, int distance){
+    int node, index;
+    Pair(int node, int index){
         this.node = node;
-        this.distance = distance;
+        this.index = index;
     }
 }
 class Edge{
